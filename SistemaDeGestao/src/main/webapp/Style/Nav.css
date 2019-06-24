@@ -94,3 +94,9 @@ form{
     background-color: black;
     margin: 6px 0;
 }
+#btn-form{
+    padding-right: 10px;
+}
+#classBtnForm{
+    padding-left: 3em;
+}

@@ -117,12 +117,10 @@
                 </div>
             </div>
             <div class="row ">
-                <div class ="form group col-10 ">
+                <div class ="form group col-9 ">
                 </div>
-                <div class ="form group col-1 ">
+                <div class ="form group col-3" id="classBtnForm">
                     <button type="reset" class="btn btn-primary" id="btn-form"> Cancelar </button>
-                </div>
-                <div class ="form group col-1 ">
                     <button type="submit" class="btn btn-primary" id="btn-form" > Confirmar </button>
                 </div>
             </div>
