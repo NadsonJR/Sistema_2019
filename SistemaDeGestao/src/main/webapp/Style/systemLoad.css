@@ -9,7 +9,7 @@ and open the template in the editor.
 */
 
 body {
-  overflow: hidden; 
+   
 }
 /* ini: Preloader */
  
@@ -76,7 +76,7 @@ body {
 /* end: Preloader */
 #preloader {
     opacity: 1;
-    animation: fadeIn 3s forwards;
+    animation: fadeIn 10s forwards;
     opacity: 1;
 }
 @keyframes fadeIn {

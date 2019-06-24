@@ -9,6 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="Style/Nav.css">
         <title>Cadastro Cliente</title>
     </head>
 
@@ -16,10 +17,9 @@
         <div>
             <jsp:include page="../../WEB_Components/LoadingPage.jsp"/>
         </div>
-        
-            <jsp:include page="../../WEB_Components/Navbar.jsp" />
-       
-        <form name="formCad" id="FadeForm" class="form-type" method="post" action="${pageContext.request.contextPath}/CadastroCliente" accept-charset="UTF-8">
+        <jsp:include page="../../WEB_Components/Navbar.jsp" />
+
+        <form name="formCad" id="FadeForm" class="form-type d-none" method-hiddend="post" action="${pageContext.request.contextPath}/CadastroCliente" accept-charset="UTF-8">
             <div class="row justify-content-center">
                 <div class="form-group">
                     <h2 class="title">Cliente</h2>
@@ -122,7 +122,7 @@
                 <div class ="form group col-1 ">
                     <button type="reset" class="btn btn-primary" id="btn-form"> Cancelar </button>
                 </div>
-                    <div class ="form group col-1 ">
+                <div class ="form group col-1 ">
                     <button type="submit" class="btn btn-primary" id="btn-form" > Confirmar </button>
                 </div>
             </div>
