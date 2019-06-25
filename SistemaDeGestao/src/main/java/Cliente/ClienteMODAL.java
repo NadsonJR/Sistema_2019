@@ -14,7 +14,7 @@ import Abstract.pessoaModal;
 public class ClienteMODAL extends pessoaModal{
     private int ID;
     private String datanascimento;
-    private boolean status;                         
+    private String status;                         
 
     public int getID() {
         return ID;
@@ -32,22 +32,22 @@ public class ClienteMODAL extends pessoaModal{
         this.datanascimento = datanascimento;
     }
 
-    public boolean isStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
-    public ClienteMODAL(int ID, String datanascimento, boolean status, String NomeCompleto, String CPF, String RG, String cep, String endereco, String cidade, String estado, String telefone, String celular) {
+    public ClienteMODAL(int ID, String datanascimento, String status, String NomeCompleto, String CPF, String RG, String cep, String endereco, String cidade, String estado, String telefone, String celular) {
         super(NomeCompleto, CPF, RG, cep, endereco, cidade, estado, telefone, celular);
         this.ID = ID;
         this.datanascimento = datanascimento;
         this.status = status;
     }
 
-    public ClienteMODAL(String datanascimento, boolean status, String NomeCompleto, String CPF, String RG, String cep, String endereco, String cidade, String estado, String telefone, String celular) {
+    public ClienteMODAL(String datanascimento, String status, String NomeCompleto, String CPF, String RG, String cep, String endereco, String cidade, String estado, String telefone, String celular) {
         super(NomeCompleto, CPF, RG, cep, endereco, cidade, estado, telefone, celular);
         this.datanascimento = datanascimento;
         this.status = status;

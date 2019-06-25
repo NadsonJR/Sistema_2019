@@ -47,7 +47,7 @@ public class CadastroCliente extends HttpServlet {
         String celular = request.getParameter("celular");
         String telefone = request.getParameter("telefone");
         String email = request.getParameter("email");
-        boolean status = true;
+        String status = "Ativo";
         
         ClienteMODAL c = new ClienteMODAL(dataNascimento, status, nome, cpf, rg, cep, endereco, cidade, estado, telefone, celular);
         

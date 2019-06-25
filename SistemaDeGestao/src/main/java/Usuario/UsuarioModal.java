@@ -19,16 +19,16 @@ public class UsuarioModal extends pessoaModal {
     private String Filial;
     private String Cargo;
 
-    public UsuarioModal(String usuario, String SenhaAberta, String Filial, String Cargo, String NomeCompleto, String CPF, String RG, int idade, String cep, String endereço, String cidade, String estado, String telefone, String celular) {
-        super(NomeCompleto, CPF, RG, idade, cep, endereço, cidade, estado, telefone, celular);
+    public UsuarioModal(String usuario, String SenhaAberta, String Filial, String Cargo, String NomeCompleto, String CPF, String RG, String cep, String endereço, String cidade, String estado, String telefone, String celular) {
+        super(NomeCompleto, CPF, RG, cep, endereço, cidade, estado, telefone, celular);
         this.usuario = usuario;
         this.Filial = Filial;
         this.Cargo = Cargo;
         setSenha(SenhaAberta);
     }
 
-    public UsuarioModal(int ID, String usuario, String SenhaAberta, String Filial, String Cargo, String NomeCompleto, String CPF, String RG, int idade, String cep, String endereço, String cidade, String estado, String telefone, String celular) {
-        super(NomeCompleto, CPF, RG, idade, cep, endereço, cidade, estado, telefone, celular);
+    public UsuarioModal(int ID, String usuario, String SenhaAberta, String Filial, String Cargo, String NomeCompleto, String CPF, String RG, String cep, String endereço, String cidade, String estado, String telefone, String celular) {
+        super(NomeCompleto, CPF, RG, cep, endereço, cidade, estado, telefone, celular);
         this.ID = ID;
         this.usuario = usuario;
         this.hashSenha = hashSenha;
