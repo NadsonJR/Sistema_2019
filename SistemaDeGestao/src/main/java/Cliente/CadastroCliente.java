@@ -46,11 +46,21 @@ public class CadastroCliente extends HttpServlet {
         String cep = request.getParameter("cep");
         String celular = request.getParameter("celular");
         String telefone = request.getParameter("telefone");
-        String email = request.getParameter("email");
         String status = "Ativo";
-        
+        nome = nome + " "+sobrenome;
+        endereco = endereco + " " + complemento;
         ClienteMODAL c = new ClienteMODAL(dataNascimento, status, nome, cpf, rg, cep, endereco, cidade, estado, telefone, celular);
-        
+        try {
+            if(ClienteDAO.inserir(c)){
+                System.out.println("Foi");
+            }else{
+                System.out.println("nao foi");
+            }
+        } catch (Exception e) {
+            e.getLocalizedMessage();
+            System.out.println(e);
+        }
+        request.setAttribute("cliente", c);
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher("WEB_Pages/Cliente/Cadastro.jsp");
         dispatcher.forward(request, response);

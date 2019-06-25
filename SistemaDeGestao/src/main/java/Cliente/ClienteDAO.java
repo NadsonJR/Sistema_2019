@@ -5,10 +5,11 @@
  */
 package Cliente;
 
+import Banco.ConnectionClass;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-
+import Banco.ConnectionClass;
 /**
  *
  * @author Lemontech
@@ -26,7 +27,7 @@ public class ClienteDAO {
         PreparedStatement preparedStatement = null;
         try {
             //Abre uma conexão com o banco de dados
-            connection = ConnectionBD.obterConexao();
+            connection = ConnectionClass.obterConexao();
             //Cria um statement para execução de instruções SQL
             preparedStatement = connection.prepareStatement(sql);
             //Configura os parâmetros do "PreparedStatement"
