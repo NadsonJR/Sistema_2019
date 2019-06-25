@@ -9,9 +9,8 @@ public class pessoaModal {
  private String NomeCompleto;
  private String CPF;
  private String RG;
- private int idade;
  private String cep;
- private String endereço;
+ private String endereco;
  private String cidade;
  private String estado;
  private String telefone;
@@ -41,14 +40,6 @@ public class pessoaModal {
         this.RG = RG;
     }
 
-    public int getIdade() {
-        return idade;
-    }
-
-    public void setIdade(int idade) {
-        this.idade = idade;
-    }
-
     public String getCep() {
         return cep;
     }
@@ -57,12 +48,12 @@ public class pessoaModal {
         this.cep = cep;
     }
 
-    public String getEndereço() {
-        return endereço;
+    public String getEndereco() {
+        return endereco;
     }
 
-    public void setEndereço(String endereço) {
-        this.endereço = endereço;
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
 
     public String getCidade() {
@@ -97,13 +88,12 @@ public class pessoaModal {
         this.celular = celular;
     }
 
-    public pessoaModal(String NomeCompleto, String CPF, String RG, int idade, String cep, String endereço, String cidade, String estado, String telefone, String celular) {
+    public pessoaModal(String NomeCompleto, String CPF, String RG, String cep, String endereco, String cidade, String estado, String telefone, String celular) {
         this.NomeCompleto = NomeCompleto;
         this.CPF = CPF;
         this.RG = RG;
-        this.idade = idade;
         this.cep = cep;
-        this.endereço = endereço;
+        this.endereco = endereco;
         this.cidade = cidade;
         this.estado = estado;
         this.telefone = telefone;

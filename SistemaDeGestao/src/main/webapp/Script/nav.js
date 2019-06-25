@@ -27,6 +27,6 @@ function loading() {
     sleep(3000);
     document.getElementById("preloader").style.display = "none";
     document.getElementById("FadeForm").setAttribute("class", "form-type");
-    console.log("dormiu");
 }
+
 /* Main Function button nav */

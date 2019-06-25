@@ -100,3 +100,6 @@ form{
 #classBtnForm{
     padding-left: 3em;
 }
+.fa-home:before{
+    font-size: 25px;
+}
