@@ -59,6 +59,8 @@ public class ClienteDAO {
                 }
             }else if(erro.contains("null")){
                 Retorno = "Algum campo não foi preenchido";
+            }else if(erro.contains("Communications link failure")){
+                Retorno = "O servidor está indisponivel no momento";
             }
             return Retorno;
         } finally {

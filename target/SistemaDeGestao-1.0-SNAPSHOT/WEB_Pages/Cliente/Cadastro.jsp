@@ -3,12 +3,12 @@
     Created on : 19/06/2019, 14:28:32
     Author     : Lemontech
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <link rel="stylesheet" type="text/css" href="Style/Nav.css">
         <title>Cadastro Cliente</title>
     </head>
@@ -23,8 +23,6 @@
             <div class="row justify-content-center">
                 <div class="form-group">
                     <h2 class="title">Cliente</h2>
-                    <br>
-                    <label></label>
                 </div>
             </div>
             <div class="row justify-content-center">
