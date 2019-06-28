@@ -1,0 +1,107 @@
+body{
+    background-image:url("Background.jpg"); 
+    background-size: cover;
+}
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: black;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+form{
+    margin-top: 0px;
+    margin-left: 150px;
+    margin-bottom: 150px;
+    margin-right: 150px;
+}
+.Home{
+    color:#A8A8A8;
+    font-size: 20px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+.Navbutton{
+    padding-top: 10px;
+    background: transparent;
+    border: 0;
+}
+.dropdown-item:hover{
+    background-color: grey;
+}
+
+.Navbutton i{
+    color: white;
+    font-size: 50px;
+    margin: 10px;
+}
+.navbar-nav{
+    margin-left: 10px;
+    color: grey;
+}
+/* The navigation menu links */
+.sidenav li {
+    padding: 8px 8px 8px 8px;
+    font-size: 20px;
+    color: #A8A8A8;
+    display: block;
+    transition: 0.3s;
+}
+.nav-link{
+    color:#A8A8A8 ;
+}
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+    transition: margin-left .5s;
+    padding: 20px;
+}
+.form-type{
+    background-color: rgba(0,0,0,0.6);
+    padding: 15px;
+    border-radius: 10px;
+    color: white;
+}
+.title{
+    text-align: center;
+}
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+.menubtn{
+    width: 35px;
+    height: 5px;
+    background-color: black;
+    margin: 6px 0;
+}
+.btn-primary{
+    padding-right: 5px;
+    margin: 0px;
+    width: 100%;
+    background-color: black;
+    color: white;
+    border: 0;
+}
+.fa-home:before{
+    font-size: 25px;
+}

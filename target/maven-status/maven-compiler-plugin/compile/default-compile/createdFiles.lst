@@ -1,0 +1,7 @@
+Usuario\UsuarioModal.class
+Abstract\pessoaModal.class
+Banco\ConnectionClass.class
+Cliente\ClienteDAO.class
+Cliente\ClienteMODAL.class
+Cliente\CadastroCliente.class
+Home\Home.class
