@@ -19,10 +19,12 @@
         </div>
         <jsp:include page="../../WEB_Components/Navbar.jsp" />
 
-        <form name="formCad" id="FadeForm" class="form-type d-none text-center" method="post" action="${pageContext.request.contextPath}/CadastroCliente" accept-charset="UTF-8">
+        <form name="formCad" id="FadeForm" class="form-type d-none text-center formMain" method="post" action="${pageContext.request.contextPath}/CadastroCliente" accept-charset="UTF-8">
             <div class="row justify-content-center">
                 <div class="form-group">
                     <h2 class="title">Cliente</h2>
+                    <br>
+                    <label></label>
                 </div>
             </div>
             <div class="row justify-content-center">
@@ -123,9 +125,10 @@
                     <button type="reset" class="btn btn-primary" id="btn-form"> Cancelar </button>
                 </div>
                 <div class="form-group col-sm-2 " id="classBtnForm">
-                    <button type="submit" class="btn btn-primary" id="btn-form" > Confirmar </button>
+                    <button type="submit" class="btn btn-primary" id="btn-form" data-toggle="modal" data-target="#modalResposta" > Salvar </button>
                 </div>
             </div>
         </form>
     </body>
 </html>
+

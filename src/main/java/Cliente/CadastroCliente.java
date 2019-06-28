@@ -49,13 +49,14 @@ public class CadastroCliente extends HttpServlet {
         String telefone = request.getParameter("telefone");
         String status = "Ativo";
         nome = nome + " "+sobrenome;
-        endereco = endereco + " " + complemento;
+        endereco = endereco + " " + complemento; 
         ClienteMODAL c = new ClienteMODAL(dataNascimento, status, nome, cpf, rg, cep, endereco, cidade, estado, telefone, celular);
         try {
-            if(ClienteDAO.inserir(c)){
+            String respostaServer = ClienteDAO.inserir(c);
+            if(respostaServer.contains("Sucesso")){
                 System.out.println("Foi");
             }else{
-                System.out.println("nao foi");
+                System.out.println(respostaServer);
             }
         } catch (Exception e) {
             e.getLocalizedMessage();

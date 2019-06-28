@@ -15,8 +15,9 @@ import Banco.ConnectionClass;
  * @author Lemontech
  */
 public class ClienteDAO {
-    public static boolean inserir(ClienteMODAL cliente)
+    public static String inserir(ClienteMODAL cliente)
             throws SQLException, Exception {
+        String Retorno ="";
         //Monta a string de inserção de um cliente no BD,
         //utilizando os dados do clientes passados como parâmetro
         String sql = "INSERT INTO Cliente (Nome,DataDeNascimento,CPF,RG,CEP,Cidade,Estado,Endereco,Telefone,Celular,Status) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
@@ -49,7 +50,17 @@ public class ClienteDAO {
 
             e.getLocalizedMessage();
             System.out.println(e);
-            return false;
+            String erro = e.getLocalizedMessage();
+            if(erro.contains("Duplicate entry")){
+                if(erro.contains("CPF")){
+                    Retorno="Esse CPF já existe no sistema!";
+                }else if(erro.contains("RG")){
+                    Retorno="Esse RG já existe no sistema!";
+                }
+            }else if(erro.contains("null")){
+                Retorno = "Algum campo não foi preenchido";
+            }
+            return Retorno;
         } finally {
             //Se o statement ainda estiver aberto, realiza seu fechamento
             if (preparedStatement != null && !preparedStatement.isClosed()) {
@@ -60,6 +71,7 @@ public class ClienteDAO {
                 connection.close();
             }
         }
-        return true;
+        Retorno = "Sucesso";
+        return Retorno;
     }
 }
