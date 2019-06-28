@@ -1,5 +1,5 @@
 body{
-    background-image:url("back.jpg"); 
+    background-image:url("Background.jpg"); 
     background-size: cover;
 }
 /* The side navigation menu */
@@ -94,11 +94,14 @@ form{
     background-color: black;
     margin: 6px 0;
 }
-#btn-form{
-    padding-right: 10px;
-}
-#classBtnForm{
-    padding-left: 3em;
+.btn-primary{
+    padding-right: 5px;
+    margin: 0px;
+    width: 100%;
+    font-weight: bold;
+    background-color: black;
+    color: white;
+    border: 0;
 }
 .fa-home:before{
     font-size: 25px;

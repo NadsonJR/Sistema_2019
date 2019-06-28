@@ -20,7 +20,7 @@
     <ul class="navbar-nav">
         <div class="iconeNav">
             <a class="Home" href="${pageContext.request.contextPath}/Home">
-                <i class="fas fa-home" id="iconehome"></i>
+                <label>Home</label>
             </a>
         </div>
         <li class="nav-item dropdown">
