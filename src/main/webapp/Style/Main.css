@@ -10,6 +10,9 @@ and open the template in the editor.
 .title{
     font-size: 3em;
 }
+body{
+    opacity: 0.9;
+}
 #btn-form:hover{
     background-color: rgba(195,69,252,0.3);
 }
