@@ -10,6 +10,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <link rel="stylesheet" type="text/css" href="Style/Nav.css">
+        <link rel="stylesheet" type="text/css" href="Style/Main.css">
         <title>Cadastro Cliente</title>
     </head>
 
@@ -22,7 +23,10 @@
         <form name="formCad" id="FadeForm" class="form-type d-none text-center formMain" method="post" action="${pageContext.request.contextPath}/CadastroCliente" accept-charset="UTF-8">
             <div class="row justify-content-center">
                 <div class="form-group">
-                    <h2 class="title">Cliente</h2>
+                    <h2 class="title">
+                        <img src="https://img.icons8.com/nolan/64/000000/gender-neutral-user.png">
+                        Cliente
+                    </h2>
                 </div>
             </div>
             <div class="row justify-content-center">

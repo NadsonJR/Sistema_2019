@@ -67,7 +67,7 @@
 </div>
 <!-- Use any element to open the sidenav -->
 <a id="menuButton" class="Navbutton" onclick="openNav()">
-    <i class="fas fa-bars"></i>
+    <img src="https://img.icons8.com/color/48/000000/squared-menu.png">
 </a>   
 <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
 </html>
