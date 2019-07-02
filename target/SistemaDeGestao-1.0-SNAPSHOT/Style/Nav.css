@@ -10,7 +10,7 @@ body{
     z-index: 1; /* Stay on top */
     top: 0; /* Stay at the top */
     left: 0;
-    background: linear-gradient( rgba(58,180,134,0.3) 0%, rgba(29,180,253,0.3) 50%, rgba(195,69,252,0.3) 100%);
+    background: linear-gradient( rgba(58,180,134,0.05) 0%, rgba(29,180,253,0.05) 50%, rgba(195,69,252,0.05) 100%);
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
@@ -33,7 +33,7 @@ body{
     border: 0;
 }
 .dropdown-item:hover{
-    background-color: rgba(0, 0, 0, 1);
+    background-color: rgba(0,0,0,0.3);
 }
 
 .Navbutton i{
@@ -94,14 +94,7 @@ body{
     background-color: black;
     margin: 6px 0;
 }
-.btn-primary{
-    padding-right: 5px;
-    margin: 0px;
-    width: 100%;
-    background-color: black;
-    color: white;
-    border: 0;
-}
+
 .fa-home:before{
     font-size: 25px;
 }

@@ -11,6 +11,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <link rel="stylesheet" type="text/css" href="Style/Nav.css">
         <link rel="stylesheet" type="text/css" href="Style/Main.css">
+        <script src="Script/mascara.min.js"></script>
         <title>Cadastro Cliente</title>
     </head>
 
