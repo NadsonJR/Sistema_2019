@@ -55,7 +55,9 @@ public class CadastroCliente extends HttpServlet {
             String respostaServer = ClienteDAO.inserir(c);
             if(respostaServer.contains("Sucesso")){
                 System.out.println("Foi");
+                request.setAttribute("msgResposta", respostaServer);
             }else{
+                request.setAttribute("msgResposta", respostaServer);
                 System.out.println(respostaServer);
             }
         } catch (Exception e) {
