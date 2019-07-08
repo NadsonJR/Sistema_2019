@@ -10,6 +10,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import Banco.ConnectionClass;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 /**
  *
  * @author Lemontech
@@ -76,4 +79,72 @@ public class ClienteDAO {
         Retorno = "Sucesso";
         return Retorno;
     }
+    public static List<ClienteMODAL> listar()
+            throws SQLException, Exception {
+        //Monta a string de listagem de clientes no banco, considerando
+        //apenas a coluna de ativação de clientes ("enabled")
+        String sql = "SELECT * FROM Cliente";
+        //Lista de clientes de resultado
+        List<ClienteMODAL> listaClientes = null;
+        //Conexão para abertura e fechamento
+        Connection connection = null;
+        //Statement para obtenção através da conexão, execução de
+        //comandos SQL e fechamentos
+        PreparedStatement preparedStatement = null;
+        //Armazenará os resultados do banco de dados
+        ResultSet result = null;
+        try {
+            //Abre uma conexão com o banco de dados
+            connection = ConnectionClass.obterConexao();
+            //Cria um statement para execução de instruções SQL
+            preparedStatement = connection.prepareStatement(sql);
+
+            //Executa a consulta SQL no banco de dados
+            result = preparedStatement.executeQuery();
+
+            //Itera por cada item do resultado
+            while (result.next()) {
+                //Se a lista não foi inicializada, a inicializa
+                if (listaClientes == null) {
+                    listaClientes = new ArrayList<ClienteMODAL>();
+                }
+                //Cria uma instância de Cliente e popula com os valores do BD
+
+                int id = result.getInt("id");
+                String nome = result.getString("nome");
+                String dataNascimento = result.getString("DataDeNascimento");
+                String cpf = result.getString("cpf");
+                String rg = result.getString("rg");
+                String cep = result.getString("cep");
+                String complemento = result.getString("complemento");
+                String cidade = result.getString("cidade");
+                String estado = result.getString("estado");
+                String endereco = result.getString("endereco");
+                String telefone = result.getString("Telefone");
+                String celular = result.getString("celular");
+                String status  = result.getString("status");
+
+                ClienteMODAL c = new ClienteMODAL(id, dataNascimento, status, nome, cpf, rg, cep, endereco, cidade, estado, telefone, celular);
+                c.setID(id);
+                //Adiciona a instância na lista
+                listaClientes.add(c);
+            }
+        } finally {
+            //Se o result ainda estiver aberto, realiza seu fechamento
+            if (result != null && !result.isClosed()) {
+                result.close();
+            }
+            //Se o statement ainda estiver aberto, realiza seu fechamento
+            if (preparedStatement != null && !preparedStatement.isClosed()) {
+                preparedStatement.close();
+            }
+            //Se a conexão ainda estiver aberta, realiza seu fechamento
+            if (connection != null && !connection.isClosed()) {
+                connection.close();
+            }
+        }
+        //Retorna a lista de clientes do banco de dados
+        return listaClientes;
+    }
+
 }

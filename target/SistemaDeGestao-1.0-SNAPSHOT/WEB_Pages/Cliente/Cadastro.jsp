@@ -112,11 +112,7 @@
                     <input type="text" class="form-control" placeholder="Apartament" name="complemento" id="complemento" required maxlength="20">
                 </div>
             </div>
-            <div class="row justify-content-center">
-                <div class="form-group col-6 ">
-                    <label> E-mail: </label>
-                    <input type="text" class="form-control" placeholder="example@example.com" name="email" id="email" required maxlength="40">
-                </div>
+            <div class="row ">
                 <div class="form-group col-3">
                     <label> Telefone: </label>
                     <input type="text" class="form-control" placeholder="(00)0000-0000" name="telefone" id="telefone" required onkeypress="return onlynumber();" maxlength="20" onkeyup="mascara('(##)####-####', this, event)">
