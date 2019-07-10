@@ -57,16 +57,16 @@
             <div class="row justify-content-center">
                 <div class="form-group col-4 ">
                     <label> CEP: </label>
-                    <input type="text" class="form-control" placeholder="00000-000" required name="cep" id="cep" maxlength="10" onkeypress="return onlynumber();" onkeyup="mascara('#####-###', this, event)">
+                    <input type="text" class="form-control" placeholder="00000-000" required name="cep" id="cep" maxlength="10" value="${cliente.cep}" onkeypress="return onlynumber();" onkeyup="mascara('#####-###', this, event)">
                 </div>
                 <div class="form-group col-4 ">
                     <label> Cidade: </label>
-                    <input type="text" class="form-control" placeholder="Chicago" required name="cidade" id="cidade" maxlength="255">
+                    <input type="text" class="form-control" placeholder="Chicago" required name="cidade" id="cidade" maxlength="255" value="${cliente.cidade}" >
                 </div>
                 <div class="form-group col-4">
                     <label> Estado: </label>
                     <select class="form-control" name="estado" id="estado" required >
-                        <option selected>Escolha...</option>
+                        <option selected value="${cliente.estado}">${cliente.estado}</option>
                         <option value="Acre">Acre</option>
                         <option value="Alagoas">Alagoas</option>
                         <option value="Amapá">Amapá</option>
@@ -100,17 +100,17 @@
             <div class="row justify-content-center">
                 <div class="form-group col-8 ">
                     <label> Endereço: </label>
-                    <input type="text" class="form-control" placeholder="1234 Main St" name="endereco" id="endereco" required maxlength="255">
+                    <input type="text" class="form-control" placeholder="1234 Main St" name="endereco" id="endereco" required maxlength="255" value="${cliente.endereco}">
                 </div>
                 <div class="form-group col-4">
                     <label> Complemento: </label>
-                    <input type="text" class="form-control" placeholder="Apartament" name="complemento" id="complemento" required maxlength="20">
+                    <input type="text" class="form-control" placeholder="Apartament" name="complemento" id="complemento" required maxlength="20" >
                 </div>
             </div>
             <div class="row ">
                 <div class="form-group col-3">
                     <label> Telefone: </label>
-                    <input type="text" class="form-control" placeholder="(00)0000-0000" name="telefone" id="telefone" required onkeypress="return onlynumber();" maxlength="20" onkeyup="mascara('(##)####-####', this, event)">
+                    <input type="text" class="form-control" placeholder="(00)0000-0000" name="telefone" id="telefone" required onkeypress="return onlynumber();" maxlength="20" value="${cliente.telefone}" onkeyup="mascara('(##)####-####', this, event)" >
                 </div>
                 <div class="form-group col-3">
                     <label> Celular: </label>

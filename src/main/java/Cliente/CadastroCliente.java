@@ -66,7 +66,7 @@ public class CadastroCliente extends HttpServlet {
         }
         request.setAttribute("cliente", c);
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("WEB_Pages/Cliente/Cadastro.jsp");
+                = request.getRequestDispatcher("WEB_Pages/Cliente/Consulta.jsp");
         dispatcher.forward(request, response);
     }
 
