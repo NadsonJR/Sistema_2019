@@ -31,12 +31,12 @@
             </div>
             <div class="row justify-content-center">
                 <div class="form-group col-10 ">
-                    <label> Nome do Cliente: </label>
-                    <input type="text" class="form-control" placeholder="Nome" id="nome" name="nome">
+                    <label> CPF do Cliente: </label>
+                    <input type="text" class="form-control" placeholder="000.000.000-00" id="nome" name="nome" onkeypress="return onlynumber();" onkeyup="mascara('###.###.###-##', this, event)">
                 </div>
 
                 <div class="form-group col-2">
-                    <button type="submit" class="btn form-control btn-primary" id="btn-form" style="margin-top: 30px;">Pesquisar</button>
+                    <button type="submit" class="btn form-control btn-primary btn-pesquisar" id="btn-form" style="margin-top: 30px;">Pesquisar</button>
                 </div>
             </div>
 
@@ -47,8 +47,8 @@
                         <table class="table ">
                             <tr>
                                 <th scope="col">Nome</th>
-                                <th scope="col">Sobrenome</th>
                                 <th scope="col">CPF</th>
+                                <th scope="col">Status</th>
                                 <th scope="col">Opções</th>
                             </tr>
 
@@ -62,20 +62,20 @@
                             <%-- primeiro form ignorado pelo metodo! --%>
                             <c:forEach items ="${listaClientes}" var="cliente" begin="0">
                                 <tr>
-                                    <td><c:out value="${cliente.getNome()}"/></td>
-                                    <td><c:out value="${cliente.getSobrenome()}"/></td>
-                                    <td><c:out value="${cliente.getCpf()}"/></td>
+                                    <td><c:out value="${cliente.getNomeCompleto()}"/></td>
+                                    <td><c:out value="${cliente.getCPF()}"/></td>
+                                    <td><c:out value="${cliente.getStatus()}"/></td>
                                     <td>
                                         <div>
                                             <form method="get" action="${pageContext.request.contextPath}/ClienteEditar">
                                                 <input type="hidden" value="${cliente.getID()}" name="id">
-                                                <button class="btn form-control btn-primary" id="btn-form" type="submit"><i class="far fa-edit"></i></button>
+                                                <button class="btn form-control btn-primary btn-editar" id="btn-form" type="submit"><i class="far fa-edit"></i></button>
                                             </form>
                                         </div>    
                                     </td>
                                     <td><form  method="post" action="${pageContext.request.contextPath}/ClienteExcluir">
                                             <input type="hidden" value="${cliente.getID()}" name="ID">
-                                            <button class="btn form-control btn-primary" id="btn-form" type="submit"><i class="fas fa-times"></i></button>                                        
+                                            <button class="btn form-control btn-primary btn-excluir" id="btn-form" type="submit"><i class="fas fa-times"></i></button>                                        
                                         </form>
                                     </td>    
                                 </tr>

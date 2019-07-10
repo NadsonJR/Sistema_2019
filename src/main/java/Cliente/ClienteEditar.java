@@ -7,59 +7,43 @@ package Cliente;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Lemontech
  */
-@WebServlet(name = "ConsultaCliente", urlPatterns = {"/ConsultaCliente"})
-public class ConsultaCliente extends HttpServlet {
+@WebServlet(name = "ClienteEditar", urlPatterns = {"/ClienteEditar"})
+public class ClienteEditar extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         request.setCharacterEncoding("UTF-8");
-        HttpSession sessao = request.getSession();
-
+        int ID = Integer.parseInt(request.getParameter("id"));
+        ClienteMODAL c = null;
         try {
-            List<ClienteMODAL> listaClientes = ClienteDAO.listar();
-            request.setAttribute("listaClientes", listaClientes);
-            sessao.setAttribute("listaClientes", listaClientes);
+            c = ClienteDAO.procurarId(ID);
         } catch (Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
-
+        request.setAttribute("id", ID);
+        request.setAttribute("cliente", c);
+        System.out.println( c.getNomeCompleto());
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("WEB_Pages/Cliente/Consulta.jsp");
+                = request.getRequestDispatcher("WEB_Pages/Cliente/Editar.jsp");
         dispatcher.forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-         request.setCharacterEncoding("UTF-8");   
-         HttpSession sessao = request.getSession();
-         
-          try {
-              String nome = request.getParameter("nome");
-              System.out.println(nome);
-              List<ClienteMODAL> listaClientes = ClienteDAO.BuscarPorNome(nome);
-             request.setAttribute("listaClientes", listaClientes);
-            sessao.setAttribute("listaClientes" , listaClientes);
-        } catch (Exception e) {
-            System.out.println(e+"erro ao buscar cliente");
-        }
-
 
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher("WEB_Pages/Cliente/Consulta.jsp");

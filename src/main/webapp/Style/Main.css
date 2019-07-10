@@ -27,3 +27,14 @@ body{
 th{
     color: white;
 }
+td{
+    color:white;
+}
+.btn-excluir{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.btn-pesquisar{
+    margin-bottom: 5px;
+}
+

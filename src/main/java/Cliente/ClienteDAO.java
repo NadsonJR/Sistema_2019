@@ -13,14 +13,16 @@ import Banco.ConnectionClass;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  *
  * @author Lemontech
  */
 public class ClienteDAO {
+
     public static String inserir(ClienteMODAL cliente)
             throws SQLException, Exception {
-        String Retorno ="";
+        String Retorno = "";
         //Monta a string de inserção de um cliente no BD,
         //utilizando os dados do clientes passados como parâmetro
         String sql = "INSERT INTO Cliente (Nome,DataDeNascimento,CPF,RG,CEP,Cidade,Estado,Endereco,Telefone,Celular,Status) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
@@ -54,15 +56,15 @@ public class ClienteDAO {
             e.getLocalizedMessage();
             System.out.println(e);
             String erro = e.getLocalizedMessage();
-            if(erro.contains("Duplicate entry")){
-                if(erro.contains("CPF")){
-                    Retorno="Esse CPF já existe no sistema!";
-                }else if(erro.contains("RG")){
-                    Retorno="Esse RG já existe no sistema!";
+            if (erro.contains("Duplicate entry")) {
+                if (erro.contains("CPF")) {
+                    Retorno = "Esse CPF já existe no sistema!";
+                } else if (erro.contains("RG")) {
+                    Retorno = "Esse RG já existe no sistema!";
                 }
-            }else if(erro.contains("null")){
+            } else if (erro.contains("null")) {
                 Retorno = "Algum campo não foi preenchido";
-            }else if(erro.contains("Communications link failure")){
+            } else if (erro.contains("Communications link failure")) {
                 Retorno = "O servidor está indisponivel no momento";
             }
             return Retorno;
@@ -79,6 +81,7 @@ public class ClienteDAO {
         Retorno = "Sucesso";
         return Retorno;
     }
+
     public static List<ClienteMODAL> listar()
             throws SQLException, Exception {
         //Monta a string de listagem de clientes no banco, considerando
@@ -116,13 +119,12 @@ public class ClienteDAO {
                 String cpf = result.getString("cpf");
                 String rg = result.getString("rg");
                 String cep = result.getString("cep");
-                String complemento = result.getString("complemento");
                 String cidade = result.getString("cidade");
                 String estado = result.getString("estado");
                 String endereco = result.getString("endereco");
                 String telefone = result.getString("Telefone");
                 String celular = result.getString("celular");
-                String status  = result.getString("status");
+                String status = result.getString("status");
 
                 ClienteMODAL c = new ClienteMODAL(id, dataNascimento, status, nome, cpf, rg, cep, endereco, cidade, estado, telefone, celular);
                 c.setID(id);
@@ -145,6 +147,139 @@ public class ClienteDAO {
         }
         //Retorna a lista de clientes do banco de dados
         return listaClientes;
+    }
+
+    public static List<ClienteMODAL> BuscarPorNome(String cpfCliente)
+            throws SQLException, Exception {
+        //Monta a string de listagem de clientes no banco, considerando
+        //apenas a coluna de ativação de clientes ("enabled")
+        //ESSA QUERY TA 100% FORA DAS BOAS PRÁTICAS ---->
+        String sql = "SELECT * FROM Cliente WHERE cpf =" + "'" + cpfCliente + "'";
+        //Lista de clientes de resultado
+        List<ClienteMODAL> listaClientes = null;
+        //Conexão para abertura e fechamento
+        Connection connection = null;
+        //Statement para obtenção através da conexão, execução de
+        //comandos SQL e fechamentos
+        PreparedStatement preparedStatement = null;
+        //Armazenará os resultados do banco de dados
+        ResultSet result = null;
+        try {
+            //Abre uma conexão com o banco de dados
+            connection = ConnectionClass.obterConexao();
+            //Cria um statement para execução de instruções SQL
+            preparedStatement = connection.prepareStatement(sql);
+            //Executa a consulta SQL no banco de dados
+            result = preparedStatement.executeQuery();
+            //Itera por cada item do resultado
+            while (result.next()) {
+                //Se a lista não foi inicializada, a inicializa
+                if (listaClientes == null) {
+                    listaClientes = new ArrayList<ClienteMODAL>();
+                }
+                //Cria uma instância de Cliente e popula com os valores do BD
+                int id = result.getInt("id");
+                String nome = result.getString("nome");
+                String dataNascimento = result.getString("DataDeNascimento");
+                String cpf = result.getString("cpf");
+                String rg = result.getString("rg");
+                String cep = result.getString("cep");
+                String cidade = result.getString("cidade");
+                String estado = result.getString("estado");
+                String endereco = result.getString("endereco");
+                String telefone = result.getString("Telefone");
+                String celular = result.getString("celular");
+                String status = result.getString("status");
+
+                ClienteMODAL c = new ClienteMODAL(id, dataNascimento, status, nome, cpf, rg, cep, endereco, cidade, estado, telefone, celular);
+                c.setID(id);
+                //Adiciona a instância na lista
+                listaClientes.add(c);
+
+            }
+        } finally {
+            //Se o result ainda estiver aberto, realiza seu fechamento
+            if (result != null && !result.isClosed()) {
+                result.close();
+            }
+            //Se o statement ainda estiver aberto, realiza seu fechamento
+            if (preparedStatement != null && !preparedStatement.isClosed()) {
+                preparedStatement.close();
+            }
+            //Se a conexão ainda estiver aberta, realiza seu fechamento
+            if (connection != null && !connection.isClosed()) {
+                connection.close();
+            }
+        }
+        //Retorna a lista de clientes do banco de dados
+        return listaClientes;
+    }
+
+    public static ClienteMODAL procurarId(int idCliente)
+            throws SQLException, Exception {
+        //Compõe uma String de consulta que considera apenas o cliente
+        //com o ID informado e que esteja ativo ("enabled" com "true")
+        String sql = "SELECT * FROM Cliente WHERE ID=?";
+        //Conexão para abertura e fechamento
+        Connection connection = null;
+        System.out.println("ID Procurar: " + idCliente);
+        //Statement para obtenção através da conexão, execução de
+        //comandos SQL e fechamentos
+        PreparedStatement preparedStatement = null;
+        //Armazenará os resultados do banco de dados
+        ResultSet result = null;
+        try {
+            //Abre uma conexão com o banco de dados
+            connection = ConnectionClass.obterConexao();
+            //Cria um statement para execução de instruções SQL
+            preparedStatement = connection.prepareStatement(sql);
+            //Configura os parâmetros do "PreparedStatement"
+            preparedStatement.setInt(1, idCliente);
+            //Executa a consulta SQL no banco de dados
+            result = preparedStatement.executeQuery();
+
+            //Verifica se há pelo menos um resultado
+            if (result.next()) {
+                //Cria uma instância de Cliente e popula com os valores do BD
+                int id = result.getInt("id");
+                String nome = result.getString("nome");
+                String dataNascimento = result.getString("DataDeNascimento");
+                String cpf = result.getString("cpf");
+                String rg = result.getString("rg");
+                String cep = result.getString("cep");
+                String cidade = result.getString("cidade");
+                String estado = result.getString("estado");
+                String endereco = result.getString("endereco");
+                String telefone = result.getString("Telefone");
+                String celular = result.getString("celular");
+                String status = result.getString("status");
+
+                ClienteMODAL cliente = new ClienteMODAL(id, dataNascimento, status, nome, cpf, rg, cep, endereco, cidade, estado, telefone, celular);
+                cliente.setID(id);
+                //Retorna o resultado
+                System.out.println("Retornando o objeto");
+                return cliente;
+
+            }
+        } finally {
+            //Se o result ainda estiver aberto, realiza seu fechamento
+            if (result != null && !result.isClosed()) {
+                result.close();
+            }
+            //Se o statement ainda estiver aberto, realiza seu fechamento
+            if (preparedStatement != null && !preparedStatement.isClosed()) {
+                preparedStatement.close();
+            }
+            //Se a conexão ainda estiver aberta, realiza seu fechamento
+            if (connection != null && !connection.isClosed()) {
+                connection.close();
+            }
+        }
+        //Se chegamos aqui, o "return" anterior não foi executado porque
+        //a pesquisa não teve resultados
+        //Neste caso, não há um elemento a retornar, então retornamos "null"
+        System.out.println("Nao encontrou!");
+        return null;
     }
 
 }
