@@ -25,10 +25,10 @@ body{
     border: 0;
 }
 th{
-    color: white;
+    color: black;
 }
 td{
-    color:white;
+    color:black;
 }
 .btn-excluir{
     margin-left: 10px;

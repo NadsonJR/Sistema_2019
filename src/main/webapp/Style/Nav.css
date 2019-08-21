@@ -1,6 +1,7 @@
 body{
-    background-image:url("Background.jpg"); 
+    background-image:url("back.gif"); 
     background-size: cover;
+    
 }
 /* The side navigation menu */
 .sidenav {
@@ -10,7 +11,7 @@ body{
     z-index: 1; /* Stay on top */
     top: 0; /* Stay at the top */
     left: 0;
-    background: linear-gradient( rgba(58,180,134,0.05) 0%, rgba(29,180,253,0.05) 50%, rgba(195,69,252,0.05) 100%);
+    background: linear-gradient(  rgba(195,69,252,0.05) 0%, rgba(85,200,149,0.5) 50%,  rgba(0,0,0,0.9) 100%);
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
@@ -22,7 +23,7 @@ body{
     margin-right: 150px;
 }
 .Home{
-    color:white;
+    color:black;
     font-size: 20px;
     padding-left: 10px;
     padding-bottom: 10px;
@@ -33,17 +34,17 @@ body{
     border: 0;
 }
 .dropdown-item:hover{
-    background-color: rgba(58,180,134,0.6);
+    background-color: rgba(0,0,0,0.9);
 }
 
 .Navbutton i{
-    color: white;
+    color: black;
     font-size: 50px;
     margin: 10px;
 }
 .navbar-nav{
     margin-left: 10px;
-    color: white;
+    color: black;
 }
 /* The navigation menu links */
 .sidenav li {
@@ -54,11 +55,11 @@ body{
     transition: 0.3s;
 }
 .nav-link{
-    color:white ;
+    color:black ;
 }
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
-    color: #f1f1f1;
+    color: rgba(209 ,166 ,131,0.9);
 }
 
 /* Position and style the close button (top right corner) */
@@ -75,10 +76,10 @@ body{
     padding: 20px;
 }
 .form-type{
-    background-color: rgba(0,0,0,0.6);
+    background-color: rgba(85,200,149,0.9);
     padding: 15px;
     border-radius: 10px;
-    color: white;
+    color: black;
 }
 .title{
     text-align: center;
