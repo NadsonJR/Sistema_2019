@@ -89,7 +89,7 @@ and open the template in the editor.
 }
 .introText{
     font-size: 100px;
-    color: white;
+    color: black;
 }
 #FadeForm{
     opacity: 0;

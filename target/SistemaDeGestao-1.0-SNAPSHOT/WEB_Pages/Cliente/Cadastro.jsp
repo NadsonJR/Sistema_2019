@@ -29,8 +29,7 @@
             <div class="row justify-content-center">
                 <div class="form-group">
                     <h2 class="title">
-                        <img src="https://img.icons8.com/nolan/64/000000/gender-neutral-user.png">
-                        Cliente
+'                        Cliente
                     </h2>
                 </div>
             </div>
